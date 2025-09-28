@@ -20,7 +20,7 @@ spring:
       enabled: true
   servlet:
     multipart:
-      max-file-size: 10MB        # increase if necessary
-      max-request-size: 10MB     # increase if necessary
+      max-file-size: 10MB        # increase if necessary to load bigger file
+      max-request-size: 10MB     # increase if necessary to load bigger file
 
 

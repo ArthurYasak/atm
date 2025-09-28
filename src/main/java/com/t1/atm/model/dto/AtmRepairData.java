@@ -1,20 +1,19 @@
-package com.t1.atm.model;
+package com.t1.atm.model.dto;
 
 import com.poiji.annotation.ExcelCellName;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
-@Entity
 @Data
-public class AtmRepair {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class AtmRepairData {
 
-    @Id
     @ExcelCellName("CASE ID")
     private Long caseId;
 

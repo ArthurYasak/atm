@@ -8,17 +8,17 @@
     <link href="/css/control.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Control page</h1>
+    <h1>Страница управления</h1>
     <form enctype="multipart/form-data" id="uploadForm" method="post" action="/control/upload">
-        <label for="file">Select Excel file. </label>
+        <label for="file">Выберите Excel файл. </label>
         <input type="file" id="file" name="file" accept=".xlsx, .xls"/> <br/><br/>
-        <button type="submit" id="submit" disabled>Upload Excel</button> <br/><br/>
+        <button type="submit" id="submit" disabled>Загрузить</button> <br/><br/>
         <a href="/data/all">
-            <button type="button" id="next">Show data</button>
+            <button type="button" id="next">Отобразить данные</button>
         </a> <br/><br/>
     </form>
     <form id="deleteForm" method="post" action="control/delete-all">
-        <button type="submit" id="delete" >Delete all data</button>
+        <button type="submit" id="delete" >Удалить данные</button>
     </form> <br/>
 
     <div class="message" th:if="${message}">

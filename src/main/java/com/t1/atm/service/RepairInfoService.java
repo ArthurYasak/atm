@@ -1,8 +1,8 @@
 package com.t1.atm.service;
 
 import com.poiji.exception.InvalidExcelFileExtension;
-import com.t1.atm.model.AtmRepair;
-import org.hibernate.id.IdentifierGenerationException;
+import com.t1.atm.model.AtmRepairEntity;
+import com.t1.atm.model.dto.AtmRepairData;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,8 +16,11 @@ public interface RepairInfoService {
 
     void deleteAll();
 
-    List<AtmRepair> getAll();
+    List<AtmRepairData> getAll();
 
-    List<Map.Entry<String, List<AtmRepair>>> getTop3Reasons();
+    List<Map.Entry<String, List<AtmRepairData>>> getTop3Reasons();
 
+    List<AtmRepairData> getTop3DurationRepairs();
+
+    List<AtmRepairData> getRepeatedRepairs();
 }

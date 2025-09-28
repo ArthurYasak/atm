@@ -7,23 +7,23 @@
     <link href="/css/table.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Data page</h1>
+    <h1>Страница отображения данных</h1>
     <a href="/data/all">
-        <button type="button" id="all">Show all</button>
+        <button type="button" id="all">Показать все</button>
     </a>
     <a href="/data/top-3-reasons">
-        <button type="button" id="reasons">Show top reasons</button>
+        <button type="button" id="reasons">Показать ТОП 3 причины</button>
     </a>
-    <a href="/data/top-3-repair-times">
-        <button type="button" id="times">Show top repair times</button>
+    <a href="/data/top-3-duration-repairs">
+        <button type="button" id="times">Показать ТОП 3 времени ремонта</button>
     </a>
-    <a href="/data/repeat-repairs">
-        <button type="button" id="repeat">Show repeat repairs</button>
+    <a href="/data/repeated-repairs">
+        <button type="button" id="repeat">Показать повторные ремонты</button>
     </a>
     <br/><br/>
-    <a href="/control">Control page</a>
+    <a href="/control">На страницу управления</a>
 
-    <h2>Atm repairs</h2>
+    <h2>Ремонты банкоматов</h2>
     <table>
         <tr>
             <th class="header">Название управляющей причины</th>
@@ -35,7 +35,7 @@
             <th class="header">BANK_NM</th>
             <th class="header">Канал связи</th>
         </tr>
-        <tbody th:each="entry: ${reasonsList}">
+        <tbody th:each="entry: ${top3reasons}">
             <tr>
                 <td  th:rowspan="${#lists.size(entry.getValue()) + 1}"
                      th:text="${entry.getKey()}"></td>

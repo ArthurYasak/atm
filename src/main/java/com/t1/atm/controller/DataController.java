@@ -7,10 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.HashMap;
-import java.util.SortedMap;
-import java.util.TreeMap;
-
 @Controller
 @RequestMapping("/data")
 @RequiredArgsConstructor
@@ -26,18 +22,20 @@ public class DataController {
 
     @GetMapping("/top-3-reasons")
     public String showTop3Reasons(Model model) {
-        model.addAttribute("reasonsList", repairInfoService.getTop3Reasons());
+        model.addAttribute("top3reasons", repairInfoService.getTop3Reasons());
 //        SortedMap sortedMap = new SortedHashMap<>(with comparator)    todo
         return "top3reasons";
     }
 
-    @GetMapping("/top-3-repair-times")
-    public String showTop3RepairTimes() {
+    @GetMapping("/top-3-duration-repairs")
+    public String showTop3RepairTimes(Model model) {
+        model.addAttribute("repairs", repairInfoService.getTop3DurationRepairs());
         return "data";
     }
 
-    @GetMapping("/repeat-repairs")
-    public String showRepeatRepairs() {
+    @GetMapping("/repeated-repairs")
+    public String showRepeatRepairs(Model model) {
+        model.addAttribute("repairs", repairInfoService.getRepeatedRepairs());
         return "data";
     }
 }
