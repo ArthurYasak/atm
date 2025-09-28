@@ -23,7 +23,7 @@ public class DataController {
     @GetMapping("/top-3-reasons")
     public String showTop3Reasons(Model model) {
         model.addAttribute("top3reasons", repairInfoService.getTop3Reasons());
-//        SortedMap sortedMap = new SortedHashMap<>(with comparator)    todo
+
         return "top3reasons";
     }
 

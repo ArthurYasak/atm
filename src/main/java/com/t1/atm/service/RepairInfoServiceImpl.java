@@ -48,7 +48,7 @@ public class RepairInfoServiceImpl implements RepairInfoService {
             default -> throw new InvalidExcelFileExtension("This file is not Excel file.");
         }
         PoijiOptions options = PoijiOptions.PoijiOptionsBuilder.settings()
-                .dateTimeFormatter(DateTimeFormatter.ofPattern("dd/MM/yyyy  hh:mm:ss")) // TODO: date outer format (mb dto with Date/time)
+                .dateTimeFormatter(DateTimeFormatter.ofPattern("dd/MM/yyyy  hh:mm:ss"))
                 .build();
         List<AtmRepairData> repairs = Poiji.fromExcel(file.getInputStream(), excelType, AtmRepairData.class, options);
 
@@ -56,7 +56,7 @@ public class RepairInfoServiceImpl implements RepairInfoService {
     }
 
     @Override
-    public void deleteAll() { // TODO:NOW
+    public void deleteAll() {
         repairInfoRepo.deleteAll();
     }
 

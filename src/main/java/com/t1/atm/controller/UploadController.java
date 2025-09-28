@@ -51,7 +51,6 @@ public class UploadController {
 
             return "redirect:/control";
         } catch (Exception e) {
-            e.printStackTrace();
             redirectAttributes.addFlashAttribute("error", "Error occurred: " + e.getMessage());
 
             return "redirect:/control";

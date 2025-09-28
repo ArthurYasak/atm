@@ -1,8 +1,6 @@
 package com.t1.atm.model.dto;
 
 import com.poiji.annotation.ExcelCellName;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
