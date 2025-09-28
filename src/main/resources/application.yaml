@@ -18,8 +18,9 @@ spring:
   h2:
     console:
       enabled: true
-  sql:
-    init:
-      mode: always
+  servlet:
+    multipart:
+      max-file-size: 10MB        # increase if necessary
+      max-request-size: 10MB     # increase if necessary
 
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Control page</title>
+
+    <link href="/css/control.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Control page</h1>
+    <form enctype="multipart/form-data" id="uploadForm" method="post" action="/control/upload">
+        <label for="file">Select Excel file. </label>
+        <input type="file" id="file" name="file" accept=".xlsx, .xls"/> <br/><br/>
+        <button type="submit" id="submit" disabled>Upload Excel</button> <br/><br/>
+        <a href="/data/all">
+            <button type="button" id="next">Show data</button>
+        </a> <br/><br/>
+    </form>
+    <form id="deleteForm" method="post" action="control/delete-all">
+        <button type="submit" id="delete" >Delete all data</button>
+    </form> <br/>
+
+    <div class="message" th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+    <div class="error" th:if="${error}">
+        <span th:text="${error}"></span>
+    </div>
+
+    <script src="/js/input.js"></script>
+
+</body>
+</html>

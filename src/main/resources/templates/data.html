@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data page</title>
+
+    <link href="/css/table.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Data page</h1>
+    <a href="/data/all">
+        <button type="button" id="all">Show all</button>
+    </a>
+    <a href="/data/top-3-reasons">
+        <button type="button" id="reasons">Show top reasons</button>
+    </a>
+    <a href="/data/top-3-repair-times">
+        <button type="button" id="times">Show top repair times</button>
+    </a>
+    <a href="/data/repeat-repairs">
+        <button type="button" id="repeat">Show repeat repairs</button>
+    </a>
+    <br/><br/>
+    <a href="/control">Control page</a>
+
+    <h2>Atm repairs</h2>
+    <table>
+        <tr>
+            <th class="header">CASE ID</th>
+            <th class="header">ATM ID</th>
+            <th class="header">Название управляющей причины</th>
+            <th class="header">Начало</th>
+            <th class="header">Окончание</th>
+            <th class="header">Серийный номер</th>
+            <th class="header">BANK_NM</th>
+            <th class="header">Канал связи</th>
+        </tr>
+        <tr th:each="repair: ${repairs}">
+
+            <td th:text="${repair.getCaseId()}"></td>
+            <td th:text="${repair.getAtmId()}"></td>
+            <td th:text="${repair.getReason()}"></td>
+            <td th:text="${repair.getStartDate()}"></td>
+            <td th:text="${repair.getEndDate()}"></td>
+            <td th:text="${repair.getSerialNum()}"></td>
+            <td th:text="${repair.getBankName()}"></td>
+            <td th:text="${repair.getLinkChannel()}"></td>
+
+        </tr>
+    </table>
+
+</body>
+</html>

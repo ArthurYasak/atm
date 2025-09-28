@@ -3,18 +3,20 @@ package com.t1.atm.model;
 import com.poiji.annotation.ExcelCellName;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
-public class ATMRepair {
+public class AtmRepair {
 
     @Id
     @ExcelCellName("CASE ID")
-    private BigDecimal caseId;
+    private Long caseId;
 
     @ExcelCellName("ATM ID")
     private String atmId;
@@ -23,10 +25,10 @@ public class ATMRepair {
     private String reason;
 
     @ExcelCellName("Начало")
-    private LocalDateTime startDate;
+    private String startDate;
 
     @ExcelCellName("Окончание")
-    private LocalDateTime endDate;
+    private String endDate;
 
     @ExcelCellName("Серийный номер")
     private String serialNum;

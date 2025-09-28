@@ -1,0 +1,12 @@
+button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+}
+
+.message {
+    color: darkgreen;
+}
