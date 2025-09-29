@@ -127,6 +127,16 @@ public class RepairInfoServiceImpl implements RepairInfoService {
         return repeatRepairs;
     }
 
+    @Override
+    public AtmRepairEntity getRepair(Long id) {
+        return repairInfoRepo.getReferenceById(id);
+    }
+
+    @Override
+    public void update(AtmRepairEntity repair) {
+        repairInfoRepo.save(repair);
+    }
+
     private List<AtmRepairEntity> getAllEntities() {
         return repairInfoRepo.findAll();
     }

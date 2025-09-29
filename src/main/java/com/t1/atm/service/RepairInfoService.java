@@ -1,6 +1,7 @@
 package com.t1.atm.service;
 
 import com.poiji.exception.InvalidExcelFileExtension;
+import com.t1.atm.model.AtmRepairEntity;
 import com.t1.atm.model.dto.AtmRepairData;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,4 +23,8 @@ public interface RepairInfoService {
     List<AtmRepairData> getTop3DurationRepairs();
 
     List<AtmRepairData> getRepeatedRepairs();
+
+    AtmRepairEntity getRepair(Long id);
+
+    void update(AtmRepairEntity repair);
 }

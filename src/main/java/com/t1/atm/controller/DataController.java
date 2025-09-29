@@ -1,10 +1,14 @@
 package com.t1.atm.controller;
 
+import com.t1.atm.model.AtmRepairEntity;
 import com.t1.atm.service.RepairInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -37,5 +41,22 @@ public class DataController {
     public String showRepeatRepairs(Model model) {
         model.addAttribute("repairs", repairInfoService.getRepeatedRepairs());
         return "data";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String editRepair(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("repair", repairInfoService.getRepair(id));
+        model.addAttribute("repairId", id);
+
+        return "editRepair";
+    }
+
+    @PatchMapping("/{id}")
+    public String updateRepair(@PathVariable("id") Long id, Model model, @ModelAttribute AtmRepairEntity repair) {
+        repair.setCaseId(id);
+//        model.addAttribute("repair", repair); // TODO: need this?
+        repairInfoService.update(repair);
+
+        return "redirect:/data/all";
     }
 }

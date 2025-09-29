@@ -5,6 +5,10 @@
     <title>Data page</title>
 
     <link href="/css/table.css" rel="stylesheet">
+    <link href="/css/tooltip.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 <body>
     <h1>Страница отображения данных</h1>
@@ -34,6 +38,7 @@
             <th class="header">Серийный номер</th>
             <th class="header">BANK_NM</th>
             <th class="header">Канал связи</th>
+            <th class="header">Действие</th>
         </tr>
         <tr th:each="repair: ${repairs}">
 
@@ -45,6 +50,12 @@
             <td th:text="${repair.getSerialNum()}"></td>
             <td th:text="${repair.getBankName()}"></td>
             <td th:text="${repair.getLinkChannel()}"></td>
+            <td class="forButton">
+                <form class="tooltip" th:action="@{/data/{id}/edit(id=${repair.getCaseId()})}">
+                    <button class="edit" type="submit"><i class="material-icons">edit</i></button>
+                    <span class="tooltiptext">Edit</span>
+                </form>
+            </td>
 
         </tr>
     </table>

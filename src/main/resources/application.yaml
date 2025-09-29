@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: atm
@@ -22,5 +25,9 @@ spring:
     multipart:
       max-file-size: 10MB        # increase if necessary to load bigger file
       max-request-size: 10MB     # increase if necessary to load bigger file
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit repair</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <h2>Редактировать запись</h2>
+
+    <form th:method="PATCH" th:action="@{/data/{id}(id=${repairId})}" th:object="${repair}">
+
+        <div class="field">
+            <label for="atmId">ATM ID: </label>
+            <input type="text" id="atmId" th:field="*{atmId}" name="atmId"/>
+        </div>
+
+        <div class="field">
+            <label for="reason">Причина: </label>
+            <input type="text" id="reason" th:field="*{reason}" name="reason"/>
+        </div>
+
+        <div class="field">
+            <label for="startDate">Начало: </label>
+            <input type="datetime-local" id="startDate" th:field="*{startDate}" name="startDate" required/><br/>
+        </div>
+
+        <div class="field">
+            <label for="endDate">Окончание: </label>
+            <input type="datetime-local" id="endDate" th:field="*{endDate}" name="endDate" required/><br/>
+        </div>
+
+        <div class="field">
+            <label for="serialNum">Серийный номер: </label>
+            <input type="text" id="serialNum" th:field="*{serialNum}" name="serialNum"/>
+        </div>
+
+        <div class="field">
+            <label for="bankName">BANK_NM: </label>
+            <input type="text" id="bankName" th:field="*{bankName}" name="bankName"/>
+        </div>
+
+        <div class="field">
+            <label for="linkChannel">Канал связи: </label>
+            <input type="text" id="linkChannel" th:field="*{linkChannel}" name="linkChannel"/>
+        </div>
+
+        <input type="submit" id="submit" value="Редактировать"/>
+    </form>
+
+    <hr>
+
+    <form th:action="@{/data/all}">
+        <button class="back" type="submit"><i class="material-icons">arrow_back</i>Cancel </button>
+    </form>
+
+</body>
+</html>

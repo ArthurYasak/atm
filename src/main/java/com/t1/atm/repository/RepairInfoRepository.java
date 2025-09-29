@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.math.BigDecimal;
 
 @Repository
-public interface RepairInfoRepository extends JpaRepository<AtmRepairEntity, BigDecimal> {
+public interface RepairInfoRepository extends JpaRepository<AtmRepairEntity, Long> {
 }
