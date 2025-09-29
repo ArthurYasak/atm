@@ -73,18 +73,7 @@ public class RepairInfoServiceImpl implements RepairInfoService {
                 .sorted((o1, o2) ->
                         o2.getValue().size() - o1.getValue().size())
                 .limit(3)
-                .collect(Collectors.toList()); // todo: TreeMap
-    }
-
-    private Map<String, List<AtmRepairData>> getTop3Reasons2() { // todo: how (return Map)
-        return getAll().stream()
-                .collect(Collectors.groupingBy(AtmRepairData::getReason))
-                .entrySet()
-                .stream()
-                .sorted((o1, o2) ->
-                        o2.getValue().size() - o1.getValue().size())
-//                .limit(3)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                .collect(Collectors.toList());
     }
 
     @Override
