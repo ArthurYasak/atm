@@ -21,12 +21,14 @@ public class DataController {
     @GetMapping("/all")
     public String showAll(Model model) {
         model.addAttribute("repairs", repairInfoService.getAll());
+        model.addAttribute("pageType", "все");
         return "data";
     }
 
     @GetMapping("/top-3-reasons")
     public String showTop3Reasons(Model model) {
         model.addAttribute("top3reasons", repairInfoService.getTop3Reasons());
+        model.addAttribute("pageType", "топ 3 причины");
 
         return "top3reasons";
     }
@@ -34,12 +36,16 @@ public class DataController {
     @GetMapping("/top-3-duration-repairs")
     public String showTop3RepairTimes(Model model) {
         model.addAttribute("repairs", repairInfoService.getTop3DurationRepairs());
+        model.addAttribute("pageType", "топ 3 времени ремонта");
+
         return "data";
     }
 
     @GetMapping("/repeated-repairs")
     public String showRepeatRepairs(Model model) {
         model.addAttribute("repairs", repairInfoService.getRepeatedRepairs());
+        model.addAttribute("pageType", "повторные ремонты");
+
         return "data";
     }
 
@@ -52,9 +58,8 @@ public class DataController {
     }
 
     @PatchMapping("/{id}")
-    public String updateRepair(@PathVariable("id") Long id, Model model, @ModelAttribute AtmRepairEntity repair) {
+    public String updateRepair(@PathVariable("id") Long id, @ModelAttribute AtmRepairEntity repair) {
         repair.setCaseId(id);
-//        model.addAttribute("repair", repair); // TODO: need this?
         repairInfoService.update(repair);
 
         return "redirect:/data/all";
